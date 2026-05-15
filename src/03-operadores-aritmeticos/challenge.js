@@ -65,28 +65,36 @@ function aplicarAsignacionResta(valor, decremento) {
 // Recibe "valor" y "factor" (números).
 // Usa una variable con let, aplica *= y retorna el valor resultante.
 function aplicarAsignacionMultiplicacion(valor, factor) {
-  // mi codigo
+  let resultado = valor;
+  resultado *= factor;
+  return resultado;
 }
 
 // --- Reto 10: Operador de asignación /= ---
 // Recibe "valor" y "divisor" (números).
 // Usa una variable con let, aplica /= y retorna el valor resultante.
 function aplicarAsignacionDivision(valor, divisor) {
-  // Tu código aquí
+  let resultado = valor;
+  resultado /= divisor;
+  return resultado;
 }
 
 // --- Reto 11: Incrementar en uno ---
 // Recibe un número "contador".
 // Retorna el valor de contador incrementado en 1 (equivalente a usar ++).
 function incrementarEnUno(contador) {
-  // Tu código aquí
+  let incremento = contador;
+  incremento++;
+  return incremento;
 }
 
 // --- Reto 12: Decrementar en uno ---
 // Recibe un número "contador".
 // Retorna el valor de contador decrementado en 1 (equivalente a usar --).
 function decrementarEnUno(contador) {
-  // Tu código aquí
+  let decremento = contador;
+  decremento--;
+  return decremento;
 }
 
 // --- Reto 13: División por cero (Infinity / -Infinity) ---
@@ -94,14 +102,18 @@ function decrementarEnUno(contador) {
 // Si positivo es true, retorna el resultado de dividir 1 entre 0 (Infinity).
 // Si positivo es false, retorna el resultado de dividir -1 entre 0 (-Infinity).
 function resultadoDivisionPorCero(positivo) {
-  // Tu código aquí
+  if (positivo===true){
+    return (1/0)
+  }else if (positivo===false){
+    return (-1/0);
+  }
 }
 
 // --- Reto 14: Obtener NaN ---
 // Retorna el resultado de una operación que produzca NaN en JavaScript.
 // Por ejemplo: 0/0 o multiplicar un string por un número.
 function obtenerNaN() {
-  // Tu código aquí
+  return (0/0);
 }
 
 // --- Reto 15: Detectar NaN ---
@@ -109,7 +121,7 @@ function obtenerNaN() {
 // Retorna true si el valor es NaN, false en caso contrario.
 // Pista: usa Number.isNaN(valor).
 function esValorNaN(valor) {
-  // Tu código aquí
+ return Number.isNaN(valor);
 }
 
 export {
