@@ -65,7 +65,7 @@ function aplicarAsignacionResta(valor, decremento) {
 // Recibe "valor" y "factor" (números).
 // Usa una variable con let, aplica *= y retorna el valor resultante.
 function aplicarAsignacionMultiplicacion(valor, factor) {
-  // Tu código aquí
+  // mi codigo
 }
 
 // --- Reto 10: Operador de asignación /= ---
