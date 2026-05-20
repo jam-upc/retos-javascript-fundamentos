@@ -21,7 +21,8 @@
  * @returns {Object|undefined} La nota encontrada o undefined
  */
 function buscarNotaPorId(notas, id) {
-  // Tu código aquí
+  const nota = notas.find (n => n.id === id);
+  return nota; 
 }
 
 /**
@@ -35,7 +36,8 @@ function buscarNotaPorId(notas, id) {
  * @returns {Object|undefined} La nota encontrada o undefined
  */
 function buscarNotaPorTituloExacto(notas, titulo) {
-  // Tu código aquí
+  const nota = notas.find(n => n.title === titulo);
+  return nota;
 }
 
 /**
@@ -49,7 +51,8 @@ function buscarNotaPorTituloExacto(notas, titulo) {
  * @returns {Array} Arreglo con las notas de esa categoría (vacío si no hay)
  */
 function filtrarNotasPorCategoria(notas, categoria) {
-  // Tu código aquí
+  const notasCategoria = notas.filter(nota => nota.category === categoria);
+  return notasCategoria;
 }
 
 /**
@@ -63,7 +66,8 @@ function filtrarNotasPorCategoria(notas, categoria) {
  * @returns {Array} Notas que cumplan la condición
  */
 function filtrarNotasPorLongitudMinima(notas, longitudMinima) {
-  // Tu código aquí
+  const notasLargas = notas.filter(nota => nota.content.length >= longitudMinima);
+  return notasLargas;
 }
 
 /**
@@ -76,7 +80,8 @@ function filtrarNotasPorLongitudMinima(notas, longitudMinima) {
  * @returns {number} La suma de todos los ids
  */
 function sumarIds(notas) {
-  // Tu código aquí
+  const sumaIDs = notas.reduce((acc, nota) => acc + nota.id, 0);
+  return sumaIDs;
 }
 
 /**
@@ -91,7 +96,13 @@ function sumarIds(notas) {
  * @returns {string} String con los títulos concatenados
  */
 function concatenarTitulos(notas) {
-  // Tu código aquí
+  const notasConcatenads = notas.reduce((acc, nota, indice) =>{
+    if (indice===0){
+      return nota.title;
+    }
+    return acc + "-" + nota.title; 
+  }, "" );
+  return notasConcatenads;
 }
 
 /**
@@ -109,7 +120,18 @@ function concatenarTitulos(notas) {
  * @returns {Object} Objeto con categorías como claves y conteos como valores
  */
 function contarNotasPorCategoria(notas) {
-  // Tu código aquí
+  const notasPorCategoria = notas.reduce((acc, nota, index) =>{
+
+    if(nota.category in acc ) {
+      acc[nota.category]++;
+    }else{
+      acc[nota.category]=1;
+    }
+    return acc;
+
+  },{} );
+
+  return notasPorCategoria;
 }
 
 /**
@@ -122,10 +144,12 @@ function contarNotasPorCategoria(notas) {
  * @returns {number} El promedio de los ids
  */
 function calcularPromedioDeIds(notas) {
-  // Tu código aquí
+  if (notas.length === 0) {return 0};
+  const sumaIDs = notas.reduce((acc, nota) => acc + nota.id, 0);
+  return (sumaIDs / notas.length);
 }
 
-module.exports = {
+export {
   buscarNotaPorId,
   buscarNotaPorTituloExacto,
   filtrarNotasPorCategoria,

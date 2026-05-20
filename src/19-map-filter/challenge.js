@@ -28,7 +28,8 @@
  * extraerTitulos(notas) // ['Nota uno', 'Nota dos']
  */
 function extraerTitulos(notas) {
-  // Tu código aquí
+  const titulos = notas.map(notas => notas.title);
+  return titulos;
 }
 
 /**
@@ -46,7 +47,11 @@ function extraerTitulos(notas) {
  * // [{ id: 1, title: 'Nota', fechaCreacion: 1700000000000 }]
  */
 function agregarFechaCreacion(notas) {
-  // Tu código aquí
+  const notasConFecha = notas.map(nota => ({
+    ...nota,
+    fechaCreacion: Date.now()
+  }));
+  return notasConFecha;
 }
 
 /**
@@ -66,7 +71,9 @@ function agregarFechaCreacion(notas) {
  * filtrarFavoritas(notas) // [{ id: 1, title: 'Fav', esFavorita: true }]
  */
 function filtrarFavoritas(notas) {
-  // Tu código aquí
+ 
+  const notasFavoritas = notas.filter(nota => nota.esFavorita);
+  return notasFavoritas;
 }
 
 /**
@@ -87,7 +94,8 @@ function filtrarFavoritas(notas) {
  * buscarPorTitulo(notas, 'importante') // [{ id: 1, title: 'Nota Importante' }]
  */
 function buscarPorTitulo(notas, busqueda) {
-  // Tu código aquí
+  const notasTitulo = notas.filter(nota => nota.title.toLocaleLowerCase().includes(busqueda.toLocaleLowerCase()));
+  return notasTitulo;
 }
 
 /**
@@ -107,7 +115,11 @@ function buscarPorTitulo(notas, busqueda) {
  * // [{ id: 1, nombre: 'Camisa', precio: 100, precioFinal: 80 }]
  */
 function aplicarDescuento(productos, porcentajeDescuento) {
-  // Tu código aquí
+  const productosConDescuento = productos.map( producto => ({
+    ...producto,
+    precioFinal: producto.precio - (producto.precio* (porcentajeDescuento/100) )
+  }));
+  return productosConDescuento;
 }
 
 /**
@@ -129,12 +141,13 @@ function aplicarDescuento(productos, porcentajeDescuento) {
  * ];
  * filtrarPorRango(productos, 100, 200) // [{ nombre: 'B', precio: 150 }]
  */
-function filtrarPorRango(productos, min, max) {
-  // Tu código aquí
+function filtrarPorRango(productos, min, max) { 
+  const productosRangoPrecio = productos.filter(producto => producto.precio >= min && producto.precio <= max );
+  return productosRangoPrecio;
 }
 
 // Exportar todas las funciones para los tests
-module.exports = {
+export {
   extraerTitulos,
   agregarFechaCreacion,
   filtrarFavoritas,
