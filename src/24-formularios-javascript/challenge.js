@@ -1,13 +1,19 @@
 function prevenirEnvioPorDefecto(evento) {
-  // Tu código aquí
+  evento.preventDefault = true;
+  return evento;
 }
 
 function extraerDatosFormulario(formulario) {
-  // Tu código aquí
+  const resultado = {
+    name: formulario.name,
+    message: formulario.message
+  };
+  return resultado;
+
 }
 
 function guardarEnLocalStorage(datos) {
-  // Tu código aquí
+  
 }
 
 function leerDesdeLocalStorage() {
@@ -26,7 +32,7 @@ function validarFormulario(nombre, mensaje) {
   // Tu código aquí
 }
 
-module.exports = {
+export {
   prevenirEnvioPorDefecto,
   extraerDatosFormulario,
   guardarEnLocalStorage,
