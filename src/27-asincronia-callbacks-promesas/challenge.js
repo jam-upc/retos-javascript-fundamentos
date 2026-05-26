@@ -6,7 +6,9 @@
  * Debe retornar "mensaje retrasado" después del tiempo especificado
  */
 function mensajeRetrasado(callback) {
-  // Tu código aquí
+  setTimeout (() => {
+    callback('mensaje retrasado');
+  },2000);
 }
 
 /**
@@ -15,7 +17,9 @@ function mensajeRetrasado(callback) {
  * Después de 1.5 segundos, llama al callback con el string "datos recibidos"
  */
 function obtenerDatos(callback) {
-  // Tu código aquí
+  setTimeout (() => {
+    callback("datos recibidos");
+  },1500);
 }
 
 /**
@@ -98,7 +102,7 @@ function convertirCallbackAPromesa(valor) {
   // Tu código aquí - usa callbackAPromesa pero retorna una promesa
 }
 
-module.exports = {
+export {
   mensajeRetrasado,
   obtenerDatos,
   operacionConError,
